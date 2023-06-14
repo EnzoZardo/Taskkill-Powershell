@@ -22,7 +22,8 @@ function RealizaPesquisaProcessos($Termo) {
         }
     }
     if ($Nomes.Count -gt 0) {
-        $NovoForm = NovoObjetoForm "Form" "Os processos encontrados foram:" @(260, ($Nomes.Count * 30 + 80)) @(0,0);
+        $NovoForm = NovoObjetoForm "Form" "Os processos encontrados foram:" @(260, 400) @(0,0);
+	$NovoForm.AutoScroll = $true;
         foreach ($Nome in $Nomes) {
             $Botao = NovoObjetoForm "Button" $Nome @(200, 25) @(20, ($NovoForm.Controls.Count * 30 + 20));
             $Botao.Add_Click({ EncerrarProcesso $this.Text })
